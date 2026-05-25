@@ -8,11 +8,16 @@ func _process(_delta):
 			procesar_puntos(area)
 
 func procesar_puntos(objeto):
-	if objeto.trash_type == self.tipo_de_bote:
+	# --- LA NUEVA REGLA DE ORO ---
+	# Es correcto si el tipo coincide exactamente, 
+	# O si el bote es el "inorganico" y la basura es "enganosa".
+	if objeto.trash_type == self.tipo_de_bote or (self.tipo_de_bote == "inorganico" and objeto.trash_type == "enganosa"):
+		
 		if objeto.trash_type == "reutilizable":
 			Global.modificar_puntos(100)
 		else:
 			Global.modificar_puntos(50)
+			
 		aplicar_feedback(Color.GREEN)
 	else:
 		# Si se equivoca, pierde puntos y UNA VIDA

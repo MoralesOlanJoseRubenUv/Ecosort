@@ -115,9 +115,10 @@ texture = ExtResource("6_w4e5f")
 position = Vector2(540, 5)
 script = ExtResource("3_aou4a")
 texturas_organico = Array[Texture2D]([ExtResource("8_nmh1f"), ExtResource("9_wwucr"), ExtResource("10_pl0kk"), ExtResource("11_jfclk"), ExtResource("12_fnw41"), ExtResource("13_epo55"), ExtResource("14_1dpdg"), ExtResource("15_2u6jv"), ExtResource("16_2t8tb"), ExtResource("17_nf2fw")])
-texturas_inorganico = Array[Texture2D]([ExtResource("18_lj2jb"), ExtResource("19_wmopk"), ExtResource("20_b8o3q"), ExtResource("21_wpdun"), ExtResource("22_4tnvf"), ExtResource("23_foomw"), ExtResource("24_wgvpi"), ExtResource("25_fbm2c"), ExtResource("26_snual"), ExtResource("27_l4t3o"), ExtResource("28_l4t3o"), ExtResource("29_hktrb"), ExtResource("30_70oky"), ExtResource("31_bttiy")])
+texturas_inorganico = Array[Texture2D]([ExtResource("19_wmopk"), ExtResource("20_b8o3q"), ExtResource("21_wpdun"), ExtResource("22_4tnvf"), ExtResource("23_foomw"), ExtResource("24_wgvpi"), ExtResource("25_fbm2c"), ExtResource("26_snual"), ExtResource("27_l4t3o")])
 texturas_reciclable = Array[Texture2D]([ExtResource("28_2u6jv"), ExtResource("29_2t8tb"), ExtResource("30_nf2fw"), ExtResource("31_lj2jb"), ExtResource("32_wmopk"), ExtResource("33_b8o3q"), ExtResource("34_wpdun")])
 texturas_reutilizable = Array[Texture2D]([SubResource("CompressedTexture2D_ged4k"), SubResource("CompressedTexture2D_fojra"), ExtResource("39_ubash"), ExtResource("40_gk2ue"), ExtResource("41_0j2o2"), ExtResource("42_ykwuh"), ExtResource("43_gi006"), ExtResource("44_o6xtl"), ExtResource("45_12wkp"), ExtResource("46_2t2fu")])
+texturas_enganosa = Array[Texture2D]([ExtResource("28_l4t3o"), ExtResource("29_hktrb"), ExtResource("30_70oky"), ExtResource("31_bttiy"), ExtResource("18_lj2jb")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=856388117]
 
