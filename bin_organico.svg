@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 160" width="120" height="160">
+  <defs>
+    <linearGradient id="bodyGrad_org" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2E7D32"/>
+      <stop offset="40%" style="stop-color:#4CAF50"/>
+      <stop offset="100%" style="stop-color:#1B5E20"/>
+    </linearGradient>
+    <linearGradient id="lidGrad_org" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#66BB6A"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="shine_org" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="shadow_org" x="-10%" y="-5%" width="130%" height="130%">
+      <feDropShadow dx="3" dy="4" stdDeviation="4" flood-color="#1B5E20" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Sombra base -->
+  <ellipse cx="60" cy="156" rx="42" ry="6" fill="#1B5E20" opacity="0.3"/>
+
+  <!-- Cuerpo del bote -->
+  <path d="M18 72 Q16 150 22 150 L98 150 Q104 150 102 72 Z" fill="url(#bodyGrad_org)" filter="url(#shadow_org)"/>
+
+  <!-- Brillo lateral cuerpo -->
+  <path d="M26 78 Q24 140 28 142 L40 142 Q36 140 38 78 Z" fill="url(#shine_org)" rx="4"/>
+
+  <!-- Franja inferior decorativa -->
+  <path d="M23 138 Q22 150 28 150 L92 150 Q98 150 97 138 Z" fill="#1B5E20" opacity="0.4"/>
+
+  <!-- Tapa -->
+  <path d="M12 72 Q12 58 60 58 Q108 58 108 72 L104 76 Q104 82 60 82 Q16 82 16 76 Z" fill="url(#lidGrad_org)" filter="url(#shadow_org)"/>
+  <!-- Brillo tapa -->
+  <ellipse cx="60" cy="64" rx="28" ry="5" fill="white" opacity="0.18"/>
+
+  <!-- Manija tapa -->
+  <rect x="46" y="52" width="28" height="9" rx="4.5" fill="#388E3C"/>
+  <rect x="48" y="53" width="14" height="4" rx="2" fill="white" opacity="0.25"/>
+
+  <!-- Ícono accesibilidad: CÍRCULO (orgánico) -->
+  <circle cx="60" cy="115" r="16" fill="none" stroke="white" stroke-width="3.5" opacity="0.9"/>
+  <circle cx="60" cy="115" r="8" fill="white" opacity="0.75"/>
+
+  <!-- Líneas decorativas cuerpo -->
+  <line x1="40" y1="88" x2="38" y2="140" stroke="white" stroke-width="1" opacity="0.1"/>
+  <line x1="60" y1="86" x2="60" y2="142" stroke="white" stroke-width="1" opacity="0.1"/>
+  <line x1="80" y1="88" x2="82" y2="140" stroke="white" stroke-width="1" opacity="0.1"/>
+
+  <!-- Etiqueta texto -->
+  <text x="60" y="98" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="9" fill="white" opacity="0.85" font-weight="bold">ORGÁNICO</text>
+</svg>

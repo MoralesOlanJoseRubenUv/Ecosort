@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://duekiuxnht60g"]
+
+[ext_resource type="Script" uid="uid://2xl5oxkli52q" path="res://src/LevelSelectionMenu.cs" id="1_pmd4b"]
+[ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_ywhys"]
+[ext_resource type="Texture2D" uid="uid://c3doq4cghev0n" path="res://LevelSelector.jpeg" id="3_gdl5r"]
+
+[node name="LevelSelectionMenu" type="Control" unique_id=996228913]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 497.0
+offset_top = 142.0
+offset_right = 497.0
+offset_bottom = 142.0
+theme = ExtResource("1_ywhys")
+script = ExtResource("1_pmd4b")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=523821527]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -564.0
+offset_top = -261.0
+offset_right = 844.0
+offset_bottom = 507.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_gdl5r")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=259638433]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 0
+offset_left = -210.0
+offset_top = -23.0
+offset_right = 390.0
+offset_bottom = 412.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=449898558]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Bienvenido a ecosort
+
+Selecciona la dificultad:"
+horizontal_alignment = 1
+
+[node name="BtnLevel1" type="Button" parent="VBoxContainer" unique_id=1272963582]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Level 1(Easy)"
+
+[node name="BtnLevel2" type="Button" parent="VBoxContainer" unique_id=1507732828]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Level2 (Medium)"
+
+[node name="BtnLevel3" type="Button" parent="VBoxContainer" unique_id=2044890646]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Level3(Hard)"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=215820219]
+layout_mode = 0
+offset_left = -459.0
+offset_top = -104.0
+offset_right = -347.0
+offset_bottom = -64.0
+scale = Vector2(1.3959605, 1.4081248)
+
+[node name="BtnLogout" type="Button" parent="VBoxContainer2" unique_id=275294755]
+layout_mode = 2
+text = "Cerrar Sesion"
+
+[connection signal="pressed" from="VBoxContainer/BtnLevel1" to="." method="_on_btn_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnLevel2" to="." method="_on_btn_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnLevel3" to="." method="_on_btn_level_3_pressed"]
+[connection signal="pressed" from="VBoxContainer2/BtnLogout" to="." method="_on_btn_logout_pressed"]

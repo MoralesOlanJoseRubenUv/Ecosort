@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://b644jv2wimfsx"]
+
+[ext_resource type="Script" uid="uid://23fake2n6rr6" path="res://src/WinMenu.cs" id="1_l763u"]
+[ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="2_q7l2s"]
+
+[node name="GameOverMenu" type="CanvasLayer" unique_id=2084412549]
+process_mode = 3
+script = ExtResource("1_l763u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2059675844]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.25490198)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=711527502]
+offset_left = 423.0
+offset_top = 230.0
+offset_right = 741.0
+offset_bottom = 390.0
+theme = ExtResource("2_q7l2s")
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1857788943]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Ganaste"
+horizontal_alignment = 1
+
+[node name="BtnMenu" type="Button" parent="VBoxContainer" unique_id=692142450]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Salir al Menú"
+
+[connection signal="pressed" from="VBoxContainer/BtnMenu" to="." method="_on_btn_menu_pressed"]

@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dup8o0hrcpsyv"]
+
+[ext_resource type="Script" uid="uid://csbqq7p6xphci" path="res://src/LoginMenu.cs" id="1_1hsr4"]
+[ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_8s0cw"]
+[ext_resource type="Texture2D" uid="uid://dck460nn238b0" path="res://registroImagen.jpg" id="3_qosbn"]
+
+[node name="MenuLogin" type="Control" unique_id=599601821 node_paths=PackedStringArray("_usernameInput", "_passwordInput", "_feedbackLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8s0cw")
+script = ExtResource("1_1hsr4")
+_usernameInput = NodePath("VBoxContainer/UsernameInput")
+_passwordInput = NodePath("VBoxContainer/PasswordInput")
+_feedbackLabel = NodePath("VBoxContainer/FeedbackLabel")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=47216668]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_qosbn")
+
+[node name="Label" type="Label" parent="." unique_id=1744392881]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 114.0
+offset_right = 755.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Inicio de Sesion"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1496187981]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 270.0
+offset_right = 770.0
+offset_bottom = 476.0
+theme_override_constants/separation = 10
+
+[node name="UsernameInput" type="LineEdit" parent="VBoxContainer" unique_id=830458054]
+layout_mode = 2
+placeholder_text = "Usuario"
+alignment = 1
+max_length = 15
+
+[node name="PasswordInput" type="LineEdit" parent="VBoxContainer" unique_id=1312561064]
+layout_mode = 2
+placeholder_text = "Contraseña"
+alignment = 1
+max_length = 10
+secret = true
+
+[node name="LoginButton" type="Button" parent="VBoxContainer" unique_id=1283862705]
+layout_mode = 2
+text = "Entrar"
+
+[node name="FeedbackLabel" type="Label" parent="VBoxContainer" unique_id=1309657423]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1670118787]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 407.0
+offset_right = 717.0
+offset_bottom = 447.0
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=1786846649]
+layout_mode = 2
+text = "¿No tienes cuenta? Regístrate"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=1978528495]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 460.0
+offset_right = 618.0
+offset_bottom = 487.0
+
+[node name="BtnExit" type="Button" parent="VBoxContainer3" unique_id=1057954329]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_go_to_register_pressed"]
+[connection signal="pressed" from="VBoxContainer3/BtnExit" to="." method="_on_btn_exit_pressed"]

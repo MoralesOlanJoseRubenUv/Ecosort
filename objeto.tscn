@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://oe34kivytwk2"]
+
+[ext_resource type="Texture2D" uid="uid://cummn1ulvo7dx" path="res://botella.jpg" id="1_wm8r3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hew6i"]
+size = Vector2(149, 148)
+
+[node name="Objeto" type="FallingObject" unique_id=456050485]
+z_index = 5
+position = Vector2(0.4965663, 1.0060315)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=93519343]
+position = Vector2(-3.496582, 4.9939575)
+texture = ExtResource("1_wm8r3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444487093]
+position = Vector2(-3.496582, 3.9939575)
+shape = SubResource("RectangleShape2D_hew6i")

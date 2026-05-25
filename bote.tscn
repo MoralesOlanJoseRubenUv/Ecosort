@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpsmlcbitr6gr"]
+
+[ext_resource type="Script" uid="uid://dkbynfk751dj8" path="res://bote.gd" id="1_3uujk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxdai"]
+size = Vector2(153, 124)
+
+[node name="Bote" type="Area2D" unique_id=1576460402]
+position = Vector2(590, 276)
+script = ExtResource("1_3uujk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1536786646]
+position = Vector2(8, 2)
+scale = Vector2(0.49722221, 0.4138889)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1054867205]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_dxdai")

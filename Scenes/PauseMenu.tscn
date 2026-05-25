@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://mw6uy8retedx"]
+
+[ext_resource type="Script" uid="uid://dhkinsiu2w2sa" path="res://src/PauseMenu.cs" id="1_lj4oq"]
+[ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="2_qwhev"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1500921472]
+script = ExtResource("1_lj4oq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=242717709]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.46666667)
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=711241260]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = -1
+anchor_left = 0.52400005
+anchor_top = 0.5
+anchor_right = 0.52400005
+anchor_bottom = 0.5
+offset_left = -229.64807
+offset_top = -173.0
+offset_right = 230.35193
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_qwhev")
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BtnResume" type="Button" parent="VBoxContainer" unique_id=2129542297]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Continuar"
+
+[node name="BtnRestart" type="Button" parent="VBoxContainer" unique_id=191624456]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="BtnQuitToMenu" type="Button" parent="VBoxContainer" unique_id=1422651289]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Salir al menu"
+
+[connection signal="pressed" from="VBoxContainer/BtnResume" to="." method="_on_btn_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnRestart" to="." method="_on_btn_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnQuitToMenu" to="." method="_on_btn_quit_to_menu_pressed"]
