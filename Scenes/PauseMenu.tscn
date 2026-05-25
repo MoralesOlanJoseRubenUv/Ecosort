@@ -17,15 +17,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=711241260]
 custom_minimum_size = Vector2(0, 100)
-anchors_preset = -1
-anchor_left = 0.52400005
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.52400005
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -229.64807
-offset_top = -173.0
-offset_right = 230.35193
-offset_bottom = 167.0
+offset_left = -230.0
+offset_top = -170.0
+offset_right = 230.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_qwhev")

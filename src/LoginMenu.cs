@@ -27,10 +27,21 @@ public partial class LoginMenu : Control
 
 		if (data["password"].ToString() == password)
 		{
-			// 3. Cargar datos al Manager y entrar
+			// 3. Cargar datos al Manager
 			PlayerDataManager.CurrentUsername = username;
+			PlayerDataManager.CurrentPassword = password; // Lo guardamos en memoria para el auto-guardado
 			PlayerDataManager.TotalScore = (int)data["total_score"];
 			PlayerDataManager.CurrentLevel = (int)data["current_level"];
+			
+			// NUEVO: Leemos el progreso máximo desbloqueado (con seguro anti-crasheos para cuentas viejas)
+			if (data.ContainsKey("max_unlocked_level"))
+			{
+				PlayerDataManager.MaxUnlockedLevel = (int)data["max_unlocked_level"];
+			}
+			else
+			{
+				PlayerDataManager.MaxUnlockedLevel = 1;
+			}
 			
 			GetTree().ChangeSceneToFile("res://Scenes/LevelSelectionMenu.tscn");
 		}
@@ -45,9 +56,8 @@ public partial class LoginMenu : Control
 		GetTree().ChangeSceneToFile("res://menu_registro.tscn");
 	}
 
-	// Añade esta función al final de tu clase LoginMenu
-public void _on_btn_exit_pressed() // Antes era _on_exit_button_pressed
-{
-	GetTree().Quit();
-}
+	public void _on_btn_exit_pressed() 
+	{
+		GetTree().Quit();
+	}
 }

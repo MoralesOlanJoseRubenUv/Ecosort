@@ -2,17 +2,13 @@
 
 [ext_resource type="Script" uid="uid://csbqq7p6xphci" path="res://src/LoginMenu.cs" id="1_1hsr4"]
 [ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_8s0cw"]
-[ext_resource type="Texture2D" uid="uid://dck460nn238b0" path="res://registroImagen.jpg" id="3_qosbn"]
+[ext_resource type="Texture2D" uid="uid://cqer7ycbtldjl" path="res://EcoSort Icons/Inorganico/FondoRegistro.jpeg" id="3_qosbn"]
 
 [node name="MenuLogin" type="Control" unique_id=599601821 node_paths=PackedStringArray("_usernameInput", "_passwordInput", "_feedbackLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 3.0
-offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_8s0cw")
@@ -20,7 +16,6 @@ script = ExtResource("1_1hsr4")
 _usernameInput = NodePath("VBoxContainer/UsernameInput")
 _passwordInput = NodePath("VBoxContainer/PasswordInput")
 _feedbackLabel = NodePath("VBoxContainer/FeedbackLabel")
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=47216668]
 layout_mode = 1

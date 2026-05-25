@@ -1,36 +1,79 @@
 [gd_scene format=3 uid="uid://d34dlt357c0kd"]
 
-[ext_resource type="Texture2D" uid="uid://hev7wav5wpr7" path="res://bin/Fondo inicial de EcoSort.jpg" id="1_1bodn"]
+[ext_resource type="VideoStream" uid="uid://1xwtb2bpiwy3" path="res://fondoAnimado1.ogv" id="1_2u6jv"]
 [ext_resource type="PackedScene" uid="uid://cpsmlcbitr6gr" path="res://bote.tscn" id="1_fw4w5"]
 [ext_resource type="Script" uid="uid://8vmbtgdh02n3" path="res://spawner.gd" id="3_aou4a"]
 [ext_resource type="Script" uid="uid://dmlcyx2v2dyuo" path="res://label_puntos.gd" id="3_fw4w5"]
 [ext_resource type="Texture2D" uid="uid://lpvjjwfiplvt" path="res://bin_organico.svg" id="3_ppd06"]
-[ext_resource type="Texture2D" uid="uid://cummn1ulvo7dx" path="res://botella.jpg" id="4_t8jxu"]
 [ext_resource type="Texture2D" uid="uid://bj4xrsus3jlq8" path="res://bin_reciclable.svg" id="4_w4e5f"]
 [ext_resource type="Texture2D" uid="uid://7c61mip3ok3d" path="res://bin_no_reciclable.svg" id="5_hppdt"]
-[ext_resource type="Texture2D" uid="uid://ckj4g2cu8g24b" path="res://papel.jpg" id="5_pfhxm"]
-[ext_resource type="Texture2D" uid="uid://fa6vx7ryy6qx" path="res://madera.jpg" id="6_pij3u"]
 [ext_resource type="Texture2D" uid="uid://0fd67irm23ml" path="res://vidrio.png" id="6_w4e5f"]
 [ext_resource type="PackedScene" uid="uid://mw6uy8retedx" path="res://Scenes/PauseMenu.tscn" id="8_7j6if"]
 [ext_resource type="Script" uid="uid://cx44b6raoxawo" path="res://src/contador_tiempo.gd" id="8_has1v"]
-[ext_resource type="Texture2D" uid="uid://c0w5ahvbw87x2" path="res://banana}.png" id="8_w4e5f"]
+[ext_resource type="Texture2D" uid="uid://kickmb5legxq" path="res://EcoSort Icons/Organico/bolsasdete(organico).png" id="8_nmh1f"]
 [ext_resource type="PackedScene" uid="uid://bqxr76jgjpcm7" path="res://Scenes/game_over_menu.tscn" id="9_7j6if"]
+[ext_resource type="Texture2D" uid="uid://bafih5y8bu4id" path="res://EcoSort Icons/Organico/cascaraaguacate.png" id="9_wwucr"]
+[ext_resource type="Texture2D" uid="uid://cyhh3f88qoqwv" path="res://EcoSort Icons/Organico/cascarahuevo.png" id="10_pl0kk"]
+[ext_resource type="Texture2D" uid="uid://c6p5xfsqgxnh2" path="res://EcoSort Icons/Organico/cascaranaranja.png" id="11_jfclk"]
 [ext_resource type="PackedScene" uid="uid://b644jv2wimfsx" path="res://Scenes/WinMenu.tscn" id="11_m1vgi"]
+[ext_resource type="Texture2D" uid="uid://b2tu57b6igqk6" path="res://EcoSort Icons/Organico/cascaraplatano.png" id="12_fnw41"]
+[ext_resource type="Texture2D" uid="uid://cvsjt1v02vnwn" path="res://EcoSort Icons/Organico/granoscafe.png" id="13_epo55"]
+[ext_resource type="Texture2D" uid="uid://mt0fhw0mnadu" path="res://EcoSort Icons/Organico/hojassecas.png" id="14_1dpdg"]
+[ext_resource type="Texture2D" uid="uid://dg3tux5w6vypa" path="res://EcoSort Icons/Organico/lechuga.png" id="15_2u6jv"]
+[ext_resource type="Texture2D" uid="uid://bs4vrycavuh7u" path="res://EcoSort Icons/Organico/manzanamordida.png" id="16_2t8tb"]
+[ext_resource type="Texture2D" uid="uid://cc1hp3m4phmo2" path="res://EcoSort Icons/Organico/restosdecomida.png" id="17_nf2fw"]
+[ext_resource type="Texture2D" uid="uid://dvsbt3km75c2r" path="res://EcoSort Icons/Inorganico/cajapizza(sucia).png" id="18_lj2jb"]
+[ext_resource type="Texture2D" uid="uid://dewmj7gd86exm" path="res://EcoSort Icons/Inorganico/chiclemasticado.png" id="19_wmopk"]
+[ext_resource type="Texture2D" uid="uid://cjqkbl3de2jqn" path="res://EcoSort Icons/Inorganico/colillacigarro.png" id="20_b8o3q"]
+[ext_resource type="Texture2D" uid="uid://djxucwbaak6ea" path="res://EcoSort Icons/Inorganico/envolturadulce.png" id="21_wpdun"]
+[ext_resource type="Texture2D" uid="uid://v87au0fkli40" path="res://EcoSort Icons/Inorganico/esponjasucia.png" id="22_4tnvf"]
+[ext_resource type="Texture2D" uid="uid://bmtuvnreyj21i" path="res://EcoSort Icons/Inorganico/higienicousado.png" id="23_foomw"]
+[ext_resource type="Texture2D" uid="uid://c6a5frwf0jh1f" path="res://EcoSort Icons/Inorganico/panalsucio.png" id="24_wgvpi"]
+[ext_resource type="Texture2D" uid="uid://ij30sg856d6f" path="res://EcoSort Icons/Inorganico/servilletausada.png" id="25_fbm2c"]
+[ext_resource type="Texture2D" uid="uid://fvi6jcmkk173" path="res://EcoSort Icons/Inorganico/ticket(inorganico).png" id="26_snual"]
+[ext_resource type="Texture2D" uid="uid://ctwmh8vtc6eos" path="res://EcoSort Icons/Inorganico/yogursucio.png" id="27_l4t3o"]
+[ext_resource type="Texture2D" uid="uid://dv2wo7pcdc31x" path="res://EcoSort Icons/Reciclable/Limpios/botellacristallimpia.png" id="28_2u6jv"]
+[ext_resource type="Texture2D" uid="uid://do6xx1j3u3vku" path="res://EcoSort Icons/Reciclable/Enganosos/botellacristalsucia.png" id="28_l4t3o"]
+[ext_resource type="Texture2D" uid="uid://wiwlxr64yodv" path="res://EcoSort Icons/Reciclable/Limpios/botellapetlimpia.png" id="29_2t8tb"]
+[ext_resource type="Texture2D" uid="uid://du6syqfpqv5l" path="res://EcoSort Icons/Reciclable/Enganosos/cajacartonsucia.png" id="29_hktrb"]
+[ext_resource type="Texture2D" uid="uid://ce7n2hqut3ud5" path="res://EcoSort Icons/Reciclable/Enganosos/latacomidasucia.png" id="30_70oky"]
+[ext_resource type="Texture2D" uid="uid://dwqf117w5fh81" path="res://EcoSort Icons/Reciclable/Limpios/cajaleche.png" id="30_nf2fw"]
+[ext_resource type="Texture2D" uid="uid://bj1ig78dk2hyr" path="res://EcoSort Icons/Reciclable/Enganosos/periodicosucio.png" id="31_bttiy"]
+[ext_resource type="Texture2D" uid="uid://dhxqcjwjy7p7x" path="res://EcoSort Icons/Reciclable/Limpios/cajapizza(limpia).png" id="31_lj2jb"]
+[ext_resource type="Texture2D" uid="uid://dq5lkl0d0vvqe" path="res://EcoSort Icons/Reciclable/Limpios/cartondesarmadolimpio.png" id="32_wmopk"]
+[ext_resource type="Texture2D" uid="uid://c42eyvfx5cawt" path="res://EcoSort Icons/Reciclable/Limpios/lataaluminiolimpia.png" id="33_b8o3q"]
+[ext_resource type="Texture2D" uid="uid://dia8ne1nik3yy" path="res://EcoSort Icons/Reciclable/Limpios/periodicolimpio.png" id="34_wpdun"]
+[ext_resource type="Texture2D" uid="uid://dq60uoufpmnl8" path="res://EcoSort Icons/Estanteria/botemermelada.png" id="39_ubash"]
+[ext_resource type="Texture2D" uid="uid://cp8rfsqeuvua7" path="res://EcoSort Icons/Estanteria/cajamadera.png" id="40_gk2ue"]
+[ext_resource type="Texture2D" uid="uid://cli3d5lywp2t8" path="res://EcoSort Icons/Estanteria/cajaplastico.png" id="41_0j2o2"]
+[ext_resource type="Texture2D" uid="uid://tjdcl74hbx7f" path="res://EcoSort Icons/Estanteria/cajazapatos.png" id="42_ykwuh"]
+[ext_resource type="Texture2D" uid="uid://glav71qurdjy" path="res://EcoSort Icons/Estanteria/cestoplastico.png" id="43_gi006"]
+[ext_resource type="Texture2D" uid="uid://c1ys0i7odmfvk" path="res://EcoSort Icons/Estanteria/latadecorativa.png" id="44_o6xtl"]
+[ext_resource type="Texture2D" uid="uid://duq80ewl0ttl7" path="res://EcoSort Icons/Estanteria/macetaplastico.png" id="45_12wkp"]
+[ext_resource type="Texture2D" uid="uid://bgale0urxxijg" path="res://EcoSort Icons/Estanteria/petplasticorigido.png" id="46_2t2fu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ged4k"]
+load_path = "res://.godot/imported/botedetergente.png-9d6a9fd94258111a38aa2a0b12446935.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fojra"]
+load_path = "res://.godot/imported/botellavidriocontapa.png-80d27e76e00a992519534ba37da144a1.ctex"
 
 [node name="Mundo" type="Node2D" unique_id=1476784921]
 
-[node name="Fondo" type="TextureRect" parent="." unique_id=9110958]
+[node name="LayerFondo" type="CanvasLayer" parent="." unique_id=1125838083]
+layer = -1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="LayerFondo" unique_id=62412754]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -220.0
-offset_top = -244.0
-offset_right = 1395.0
-offset_bottom = 649.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_1bodn")
-stretch_mode = 6
+mouse_filter = 2
+stream = ExtResource("1_2u6jv")
+autoplay = true
+expand = true
+loop = true
 
 [node name="Bote" parent="." unique_id=1576460402 instance=ExtResource("1_fw4w5")]
 position = Vector2(150, 547)
@@ -71,10 +114,10 @@ texture = ExtResource("6_w4e5f")
 [node name="spawner" type="Node2D" parent="." unique_id=2088232973]
 position = Vector2(540, 5)
 script = ExtResource("3_aou4a")
-textura_organico = ExtResource("8_w4e5f")
-textura_inorganico = ExtResource("4_t8jxu")
-textura_reciclable = ExtResource("5_pfhxm")
-textura_reutilizable = ExtResource("6_pij3u")
+texturas_organico = Array[Texture2D]([ExtResource("8_nmh1f"), ExtResource("9_wwucr"), ExtResource("10_pl0kk"), ExtResource("11_jfclk"), ExtResource("12_fnw41"), ExtResource("13_epo55"), ExtResource("14_1dpdg"), ExtResource("15_2u6jv"), ExtResource("16_2t8tb"), ExtResource("17_nf2fw")])
+texturas_inorganico = Array[Texture2D]([ExtResource("18_lj2jb"), ExtResource("19_wmopk"), ExtResource("20_b8o3q"), ExtResource("21_wpdun"), ExtResource("22_4tnvf"), ExtResource("23_foomw"), ExtResource("24_wgvpi"), ExtResource("25_fbm2c"), ExtResource("26_snual"), ExtResource("27_l4t3o"), ExtResource("28_l4t3o"), ExtResource("29_hktrb"), ExtResource("30_70oky"), ExtResource("31_bttiy")])
+texturas_reciclable = Array[Texture2D]([ExtResource("28_2u6jv"), ExtResource("29_2t8tb"), ExtResource("30_nf2fw"), ExtResource("31_lj2jb"), ExtResource("32_wmopk"), ExtResource("33_b8o3q"), ExtResource("34_wpdun")])
+texturas_reutilizable = Array[Texture2D]([SubResource("CompressedTexture2D_ged4k"), SubResource("CompressedTexture2D_fojra"), ExtResource("39_ubash"), ExtResource("40_gk2ue"), ExtResource("41_0j2o2"), ExtResource("42_ykwuh"), ExtResource("43_gi006"), ExtResource("44_o6xtl"), ExtResource("45_12wkp"), ExtResource("46_2t2fu")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=856388117]
 

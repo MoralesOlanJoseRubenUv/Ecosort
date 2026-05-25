@@ -2,41 +2,46 @@
 
 [ext_resource type="Script" uid="uid://2xl5oxkli52q" path="res://src/LevelSelectionMenu.cs" id="1_pmd4b"]
 [ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_ywhys"]
-[ext_resource type="Texture2D" uid="uid://c3doq4cghev0n" path="res://LevelSelector.jpeg" id="3_gdl5r"]
+[ext_resource type="VideoStream" uid="uid://dwilffh6j3t0e" path="res://EcoSort Icons/Inorganico/mira_quiero_que_de_esta_imagen.ogv" id="3_gdl5r"]
 
 [node name="LevelSelectionMenu" type="Control" unique_id=996228913]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 497.0
-offset_top = 142.0
-offset_right = 497.0
-offset_bottom = 142.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("1_ywhys")
 script = ExtResource("1_pmd4b")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=523821527]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=588325895]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -564.0
-offset_top = -261.0
-offset_right = 844.0
-offset_bottom = 507.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_gdl5r")
-expand_mode = 1
-stretch_mode = 6
-metadata/_edit_use_anchors_ = true
+stream = ExtResource("3_gdl5r")
+autoplay = true
+expand = true
+loop = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=259638433]
 custom_minimum_size = Vector2(500, 100)
-layout_mode = 0
-offset_left = -210.0
-offset_top = -23.0
-offset_right = 390.0
-offset_bottom = 412.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -217.5
+offset_right = 250.0
+offset_bottom = 217.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
 
@@ -65,15 +70,24 @@ layout_mode = 2
 text = "Level3(Hard)"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=215820219]
-layout_mode = 0
-offset_left = -459.0
-offset_top = -104.0
-offset_right = -347.0
-offset_bottom = -64.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45052084
+anchor_top = 0.9382716
+anchor_right = 0.5886628
+anchor_bottom = 1.025193
+offset_left = -11.0
+offset_top = -8.0
+offset_right = -56.139526
+offset_bottom = -24.325073
+grow_horizontal = 2
+grow_vertical = 0
 scale = Vector2(1.3959605, 1.4081248)
 
 [node name="BtnLogout" type="Button" parent="VBoxContainer2" unique_id=275294755]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Cerrar Sesion"
 
 [connection signal="pressed" from="VBoxContainer/BtnLevel1" to="." method="_on_btn_level_1_pressed"]

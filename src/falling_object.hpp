@@ -3,7 +3,7 @@
 
 #include <godot_cpp/classes/area2d.hpp>
 #include <godot_cpp/classes/viewport.hpp>
-#include <godot_cpp/classes/input_event.hpp> // <--- ARREGLA EL ERROR DE INPUTEVENT
+#include <godot_cpp/classes/input_event.hpp> 
 #include <godot_cpp/core/class_db.hpp>
 
 namespace godot {
@@ -17,11 +17,12 @@ private:
     Vector2 target_position;
     String trash_type;
 
+    // --- EL CANDADO MAESTRO NATIVO ---
+    static bool alguien_esta_siendo_arrastrado;
+
 protected:
     static void _bind_methods();
 
-public:
-    // ... dentro de la sección public de la clase FallingObject ...
 public:
     FallingObject();
     ~FallingObject();
@@ -32,16 +33,17 @@ public:
 
     void setup(Vector2 center, float scatter_radius);
     
-    // --- NUEVAS FUNCIONES PARA LA VELOCIDAD ---
+    // --- FUNCIONES PARA LA VELOCIDAD ---
     void set_speed(const float p_speed) { speed = p_speed; }
     float get_speed() const { return speed; }
-    // ------------------------------------------
-
+    
+    // --- FUNCIONES PARA EL TIPO DE BASURA ---
     void set_trash_type(const String p_type) { trash_type = p_type; }
     String get_trash_type() const { return trash_type; }
+
     bool get_is_dragging() const { return is_dragging; }
 };
 
-}
+} // namespace godot
 
 #endif

@@ -5,20 +5,20 @@
 
 using namespace godot;
 
+// INICIALIZAMOS EL CANDADO NATIVO (Empieza apagado para que se pueda agarrar el primer objeto)
+bool FallingObject::alguien_esta_siendo_arrastrado = false;
+
 void FallingObject::_bind_methods() {
     ClassDB::bind_method(D_METHOD("setup", "center", "scatter_radius"), &FallingObject::setup);
     ClassDB::bind_method(D_METHOD("get_trash_type"), &FallingObject::get_trash_type);
     ClassDB::bind_method(D_METHOD("set_trash_type", "p_type"), &FallingObject::set_trash_type);
     ClassDB::bind_method(D_METHOD("get_is_dragging"), &FallingObject::get_is_dragging);
     
-    // NUEVO: Métodos para la velocidad
     ClassDB::bind_method(D_METHOD("set_speed", "p_speed"), &FallingObject::set_speed);
     ClassDB::bind_method(D_METHOD("get_speed"), &FallingObject::get_speed);
 
     ADD_PROPERTY(PropertyInfo(Variant::STRING, "trash_type"), "set_trash_type", "get_trash_type");
     ADD_PROPERTY(PropertyInfo(Variant::BOOL, "is_dragging"), "", "get_is_dragging");
-    
-    // NUEVO: Propiedad para que el spawner la vea
     ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "speed"), "set_speed", "get_speed");
 }
 
@@ -57,8 +57,18 @@ void FallingObject::_input_event(Viewport *viewport, const Ref<InputEvent> &even
     Ref<InputEventMouseButton> mb = event;
     if (mb.is_valid() && mb->get_button_index() == MOUSE_BUTTON_LEFT) {
         if (mb->is_pressed()) {
-            is_dragging = true;
-            set_z_index(10);
+            
+            // Verificamos la variable compartida de C++
+            if (!alguien_esta_siendo_arrastrado) {
+                // Bloqueamos a todos los demás objetos
+                alguien_esta_siendo_arrastrado = true;
+                is_dragging = true;
+                
+                set_z_index(10); // Lo manda al frente visualmente
+                
+                // ¡La instrucción que destruye el clic para que no atraviese!
+                viewport->set_input_as_handled(); 
+            }
         }
     }
 }
@@ -67,6 +77,9 @@ void FallingObject::_input(const Ref<InputEvent> &event) {
     Ref<InputEventMouseButton> mb = event;
     if (mb.is_valid() && mb->get_button_index() == MOUSE_BUTTON_LEFT && !mb->is_pressed()) {
         if (is_dragging) {
+            
+            // Al soltar el mouse, liberamos el candado
+            alguien_esta_siendo_arrastrado = false;
             is_dragging = false;
             set_z_index(0);
         }
