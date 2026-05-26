@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csbqq7p6xphci" path="res://src/LoginMenu.cs" id="1_1hsr4"]
 [ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_8s0cw"]
-[ext_resource type="Texture2D" uid="uid://cqer7ycbtldjl" path="res://EcoSort Icons/Inorganico/FondoRegistro.jpeg" id="3_qosbn"]
+[ext_resource type="VideoStream" uid="uid://uaufgshse0oy" path="res://AnimacionRegistro.ogv" id="3_qosbn"]
 
 [node name="MenuLogin" type="Control" unique_id=599601821 node_paths=PackedStringArray("_usernameInput", "_passwordInput", "_feedbackLabel")]
 layout_mode = 3
@@ -17,14 +17,17 @@ _usernameInput = NodePath("VBoxContainer/UsernameInput")
 _passwordInput = NodePath("VBoxContainer/PasswordInput")
 _feedbackLabel = NodePath("VBoxContainer/FeedbackLabel")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=47216668]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1218357535]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_qosbn")
+stream = ExtResource("3_qosbn")
+autoplay = true
+expand = true
+loop = true
 
 [node name="Label" type="Label" parent="." unique_id=1744392881]
 layout_mode = 0

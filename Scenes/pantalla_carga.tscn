@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://d3ab0eouds4x3"]
+
+[ext_resource type="Script" uid="uid://m8kglu1lvga" path="res://pantalla_carga.gd" id="1_8v8tq"]
+[ext_resource type="Texture2D" uid="uid://dpo4se7a60cat" path="res://FondoCarga.jpeg" id="2_v26f5"]
+[ext_resource type="Texture2D" uid="uid://cyid7st5kw3ba" path="res://edited-photo.png" id="3_jwjd6"]
+[ext_resource type="Texture2D" uid="uid://k8xd5w3m4pwe" path="res://edited-photo (1).png" id="4_yrn2k"]
+[ext_resource type="Texture2D" uid="uid://s545mre3gg3n" path="res://edited-photo (2).png" id="5_ny2jl"]
+[ext_resource type="Texture2D" uid="uid://ccjgw2hbf8kqg" path="res://edited-photo (3).png" id="6_dypg6"]
+[ext_resource type="Texture2D" uid="uid://37e6w3y0c6u0" path="res://edited-photo (4).png" id="7_ivsxx"]
+[ext_resource type="Texture2D" uid="uid://d2yj88434ybm2" path="res://edited-photo (5).png" id="8_rekie"]
+[ext_resource type="Texture2D" uid="uid://dw0bs1agc1y70" path="res://edited-photo (6).png" id="9_awshp"]
+[ext_resource type="Texture2D" uid="uid://c2gpbdq5qfv8m" path="res://edited-photo (7).png" id="10_5jsig"]
+[ext_resource type="Texture2D" uid="uid://caxq5twoclhau" path="res://AnimacionHablando/1.png" id="11_opt5h"]
+[ext_resource type="Texture2D" uid="uid://dfc2evcojmyfh" path="res://AnimacionHablando/2.png" id="12_lm4d0"]
+[ext_resource type="Texture2D" uid="uid://fuvo4j05lc0g" path="res://AnimacionHablando/3.png" id="13_ns4gi"]
+[ext_resource type="Texture2D" uid="uid://dlpsvwr6pi4v3" path="res://AnimacionHablando/4.png" id="14_85dsy"]
+[ext_resource type="Texture2D" uid="uid://dhjtlhhxds2yw" path="res://AnimacionHablando/5.png" id="15_ajqit"]
+[ext_resource type="Texture2D" uid="uid://bjmrucnv6axj2" path="res://AnimacionHablando/6.png" id="16_57mfl"]
+[ext_resource type="Texture2D" uid="uid://6eiidx5kwd5g" path="res://AnimacionHablando/7.png" id="17_e2rdq"]
+[ext_resource type="Texture2D" uid="uid://bitbos42tdu4r" path="res://AnimacionHablando/8.png" id="18_qi8xd"]
+[ext_resource type="Texture2D" uid="uid://bkusx3gouv4xi" path="res://AnimacionHablando/9.png" id="19_qqqji"]
+[ext_resource type="Texture2D" uid="uid://rk6706urnk7p" path="res://AnimacionHablando/10.png" id="20_hgaii"]
+[ext_resource type="Texture2D" uid="uid://okl4l7fwn3o8" path="res://AnimacionHablando/11.png" id="21_mr5du"]
+[ext_resource type="Texture2D" uid="uid://vchpqslvaq5" path="res://AnimacionHablando/12.png" id="22_1ui7q"]
+[ext_resource type="Texture2D" uid="uid://dgl1qdqqnv5tj" path="res://AnimacionHablando/globo de texto.png" id="23_u5pip"]
+[ext_resource type="FontFile" uid="uid://fuu7qvxvifeg" path="res://AnimacionHablando/FredokaOne-Regular.ttf" id="24_yrn2k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_20fe3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jwjd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_yrn2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ny2jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dypg6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ivsxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rekie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_awshp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5jsig")
+}],
+"loop": true,
+"name": &"caminando",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_novhm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_opt5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lm4d0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ns4gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_85dsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ajqit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_57mfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_e2rdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_qi8xd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_qqqji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_hgaii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_mr5du")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1ui7q")
+}],
+"loop": true,
+"name": &"hablando",
+"speed": 7.0
+}]
+
+[node name="PantallaCarga" type="CanvasLayer" unique_id=708614071]
+script = ExtResource("1_8v8tq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=709150635]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v26f5")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="caminando" type="AnimatedSprite2D" parent="." unique_id=286237523]
+position = Vector2(968, 586)
+scale = Vector2(0.17723235, 0.17062497)
+sprite_frames = SubResource("SpriteFrames_20fe3")
+animation = &"caminando"
+frame_progress = 0.53889096
+
+[node name="Hablando" type="AnimatedSprite2D" parent="." unique_id=1837684392]
+position = Vector2(184, 432)
+sprite_frames = SubResource("SpriteFrames_novhm")
+animation = &"hablando"
+frame_progress = 0.32968953
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1684009800]
+offset_left = 230.0
+offset_top = 185.0
+offset_right = 458.0
+offset_bottom = 384.0
+texture = ExtResource("23_u5pip")
+
+[node name="Label" type="Label" parent="NinePatchRect" unique_id=2059219230]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_top = 0.201
+anchor_right = 0.87600005
+anchor_bottom = 0.62200004
+offset_left = 14.271999
+offset_top = -0.99900055
+offset_right = -10.728012
+offset_bottom = 4.2219925
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.06357058, 0, 0.66214603, 1)
+theme_override_fonts/font = ExtResource("24_yrn2k")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
