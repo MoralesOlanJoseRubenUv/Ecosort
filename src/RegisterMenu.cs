@@ -10,6 +10,12 @@ public partial class RegisterMenu : Control
 
 	private string _levelSelectPath = "res://Scenes/LevelSelectionMenu.tscn";
 	private string _loginMenuPath = "res://LoginMenu.tscn";
+	
+	public override void _Ready()
+	{
+		// Mantiene la misma música del login sin reiniciarse
+		GetNode("/root/MusicaFondo").Call("reproducir_login");
+	}
 
 	public void _on_register_button_pressed()
 	{

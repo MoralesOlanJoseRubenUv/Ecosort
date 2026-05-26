@@ -20,6 +20,9 @@ var hilo_carga: Thread
 var detener_hilo: bool = false # NUEVA VARIABLE: Nuestro botón de pánico para frenar el hilo
 
 func _ready():
+	
+	# --- MÚSICA DEL JUEGO ---
+	MusicaFondo.reproducir_juego()
 	# Creamos un nuevo hilo de procesador y lo ponemos a trabajar
 	hilo_carga = Thread.new()
 	hilo_carga.start(_tarea_pesada_en_segundo_plano)

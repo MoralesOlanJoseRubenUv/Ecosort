@@ -30,6 +30,8 @@ public partial class LevelSelectionMenu : Control
 
 		if (maxDesbloqueado >= 2) btnLevel2.Show();
 		if (maxDesbloqueado >= 3) btnLevel3.Show();
+		
+		GetNode("/root/MusicaFondo").Call("reproducir_selector");
 	}
 
 	private void IniciarCargaNivel()

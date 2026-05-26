@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvsbt3km75c2r"
-path="res://.godot/imported/cajapizza(sucia).png-8c5c7d94f62cc318326685875165dcbb.ctex"
+uid="uid://dglvh40spb5m8"
+path="res://.godot/imported/4.png-5e6f0d67a6c59c76ddca30ec47029ac1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EcoSort Icons/Inorganico/cajapizza(sucia).png"
-dest_files=["res://.godot/imported/cajapizza(sucia).png-8c5c7d94f62cc318326685875165dcbb.ctex"]
+source_file="res://AnimacionTriste/4.png"
+dest_files=["res://.godot/imported/4.png-5e6f0d67a6c59c76ddca30ec47029ac1.ctex"]
 
 [params]
 

@@ -8,9 +8,16 @@ func _process(_delta):
 			procesar_puntos(area)
 
 func procesar_puntos(objeto):
-	# --- LA NUEVA REGLA DE ORO ---
-	# Es correcto si el tipo coincide exactamente, 
-	# O si el bote es el "inorganico" y la basura es "enganosa".
+	var eco_manager = get_tree().current_scene.get_node_or_null("CanvasLayer/EcoFeedback")
+	
+	# --- EL TRUCO: Extraemos el nombre exacto de la imagen ---
+	var nombre_item = ""
+	var sprite = objeto.get_node_or_null("Sprite2D")
+	if is_instance_valid(sprite) and sprite.texture != null and sprite.texture.resource_path != "":
+		# Esto convierte "res://.../cajapizza(sucia).png" a "cajapizza(sucia)"
+		nombre_item = sprite.texture.resource_path.get_file().get_basename()
+	
+	# Evaluamos si la metió en el bote correcto
 	if objeto.trash_type == self.tipo_de_bote or (self.tipo_de_bote == "inorganico" and objeto.trash_type == "enganosa"):
 		
 		if objeto.trash_type == "reutilizable":
@@ -19,11 +26,18 @@ func procesar_puntos(objeto):
 			Global.modificar_puntos(50)
 			
 		aplicar_feedback(Color.GREEN)
+		
+		if eco_manager:
+			eco_manager.reaccionar_acierto(objeto.trash_type, nombre_item) # Le pasamos el nombre!
+			
 	else:
-		# Si se equivoca, pierde puntos y UNA VIDA
 		Global.modificar_puntos(-25)
 		Global.modificar_vidas(-1) 
 		aplicar_feedback(Color.RED)
+		
+		if eco_manager:
+			# Le pasamos qué era, en dónde lo metió por error, y el nombre de la foto
+			eco_manager.reaccionar_error(objeto.trash_type, self.tipo_de_bote, nombre_item)
 	
 	objeto.queue_free()
 

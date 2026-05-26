@@ -7,6 +7,12 @@ public partial class LoginMenu : Control
 	[Export] private LineEdit _usernameInput;
 	[Export] private LineEdit _passwordInput;
 	[Export] private Label _feedbackLabel;
+	
+	public override void _Ready()
+	{
+		// Llamamos al Autoload de la música usando C#
+		GetNode("/root/MusicaFondo").Call("reproducir_login");
+	}
 
 	public void _on_login_button_pressed()
 	{

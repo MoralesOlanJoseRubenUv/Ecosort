@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dvik0d0qlw5je"]
+
+[ext_resource type="Script" uid="uid://cx54u5i5ilbtj" path="res://Scenes/musica_fondo.gd" id="1_7l8t4"]
+
+[node name="MusicaFondo" type="AudioStreamPlayer" unique_id=602834348]
+volume_db = -15.0
+script = ExtResource("1_7l8t4")
