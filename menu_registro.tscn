@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://432a7uajf0qj" path="res://src/RegisterMenu.cs" id="1_4negb"]
 [ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_r0x0a"]
 [ext_resource type="VideoStream" uid="uid://uaufgshse0oy" path="res://AnimacionRegistro.ogv" id="3_r0x0a"]
+[ext_resource type="Texture2D" uid="uid://dd3igyob01xa8" path="res://EcoSort Icons/logo.png" id="4_mtoro"]
 
 [node name="MenuRegistro" type="Control" unique_id=599601821 node_paths=PackedStringArray("_usernameInput", "_passwordInput", "_feedbackLabel")]
 layout_mode = 3
@@ -28,6 +29,7 @@ stream = ExtResource("3_r0x0a")
 autoplay = true
 expand = true
 loop = true
+bus = &"Videos"
 
 [node name="Titulo" type="Label" parent="." unique_id=1175842306]
 layout_mode = 0
@@ -99,6 +101,19 @@ offset_bottom = 514.0
 [node name="BtnExit" type="Button" parent="VBoxContainer3" unique_id=601920883]
 layout_mode = 2
 text = "Salir"
+
+[node name="Logo" type="TextureRect" parent="." unique_id=1788145145]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 7.0
+offset_right = 111.5
+offset_bottom = 110.0
+grow_horizontal = 2
+texture = ExtResource("4_mtoro")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/RegisterButton" to="." method="_on_register_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_go_to_login_pressed"]

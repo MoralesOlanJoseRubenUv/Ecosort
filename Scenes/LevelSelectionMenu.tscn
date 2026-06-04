@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://2xl5oxkli52q" path="res://src/LevelSelectionMenu.cs" id="1_pmd4b"]
 [ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_ywhys"]
 [ext_resource type="VideoStream" uid="uid://dwilffh6j3t0e" path="res://EcoSort Icons/Inorganico/mira_quiero_que_de_esta_imagen.ogv" id="3_gdl5r"]
+[ext_resource type="Texture2D" uid="uid://dd3igyob01xa8" path="res://EcoSort Icons/logo.png" id="4_axixk"]
 
 [node name="LevelSelectionMenu" type="Control" unique_id=996228913]
 layout_mode = 3
@@ -27,6 +28,7 @@ stream = ExtResource("3_gdl5r")
 autoplay = true
 expand = true
 loop = true
+bus = &"Videos"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=259638433]
 custom_minimum_size = Vector2(500, 100)
@@ -49,9 +51,7 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Bienvenido a ecosort
-
-Selecciona la dificultad:"
+text = "Selecciona la dificultad:"
 horizontal_alignment = 1
 
 [node name="BtnLevel1" type="Button" parent="VBoxContainer" unique_id=1272963582]
@@ -89,6 +89,19 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Cerrar Sesion"
+
+[node name="Logo" type="TextureRect" parent="." unique_id=561142183]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 7.0
+offset_right = 84.5
+offset_bottom = 110.0
+grow_horizontal = 2
+texture = ExtResource("4_axixk")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/BtnLevel1" to="." method="_on_btn_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/BtnLevel2" to="." method="_on_btn_level_2_pressed"]

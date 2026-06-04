@@ -10,31 +10,65 @@ extends Node2D
 @export var texturas_enganosa: Array[Texture2D] 
 
 @export var tamano_objetivo: float = 80.0 
-@export var limite_basura_en_pantalla: int = 15 
+@export var limite_basura_en_pantalla: int = 40 
 
 var tiempo_generacion: float = 2.0
 var tipos_comunes = ["organico", "inorganico", "reciclable", "enganosa"]
 
 var cache_poligonos: Dictionary = {}
+var timer_generacion: Timer
+
+# Controladores de carga fluida
 var hilo_carga: Thread
-var detener_hilo: bool = false # NUEVA VARIABLE: Nuestro botón de pánico para frenar el hilo
+var detener_hilo: bool = false
+var math_terminada: bool = false
+var tutorial_terminado: bool = false
 
 func _ready():
+	if has_node("/root/MusicaFondo"):
+		get_node("/root/MusicaFondo").reproducir_juego()
+		
+	timer_generacion = Timer.new()
+	timer_generacion.wait_time = tiempo_generacion
+	timer_generacion.autostart = false 
+	timer_generacion.timeout.connect(lanzar_basura)
+	add_child(timer_generacion)
+
+	if has_node("/root/Global"):
+		get_node("/root/Global").juego_activo = false
+
 	
-	# --- MÚSICA DEL JUEGO ---
-	MusicaFondo.reproducir_juego()
-	# Creamos un nuevo hilo de procesador y lo ponemos a trabajar
+	if Global.nivel_actual > 1:
+		tutorial_terminado = true
+
+	
+	if not Global.cache_poligonos.is_empty():
+		
+		cache_poligonos = Global.cache_poligonos.duplicate()
+		math_terminada = true
+		_intentar_iniciar_juego()
+		return
+		
 	hilo_carga = Thread.new()
 	hilo_carga.start(_tarea_pesada_en_segundo_plano)
 
-# NUEVA FUNCIÓN: Se activa automáticamente si el nodo es destruido o cambias de escena
+	var nivel = 1
+	if has_node("/root/Global"):
+		var global = get_node("/root/Global")
+		nivel = global.get("nivel_actual")
+		
+	# 2. LANZAMOS EL TUTORIAL AL INSTANTE
+	if nivel == 1:
+		tutorial_terminado = false
+		call_deferred("_mostrar_tutorial")
+	else:
+		tutorial_terminado = true # En nivel 2 y 3 no hay tutorial
+
 func _exit_tree():
 	detener_hilo = true
-	# Si el hilo sigue trabajando, le decimos que termine de forma segura antes de cerrar
 	if hilo_carga != null and hilo_carga.is_started():
 		hilo_carga.wait_to_finish()
 
-# --- ESTA FUNCIÓN CORRE EN OTRO NÚCLEO DEL PROCESADOR ---
 func _tarea_pesada_en_segundo_plano():
 	var todas_las_texturas = []
 	todas_las_texturas.append_array(texturas_organico)
@@ -44,42 +78,56 @@ func _tarea_pesada_en_segundo_plano():
 	todas_las_texturas.append_array(texturas_enganosa)
 	
 	var cache_temporal = {}
-	
 	for textura in todas_las_texturas:
-		# REVISIÓN DE SEGURIDAD: Si el spawner ya no existe, salimos inmediatamente
-		if detener_hilo: 
-			return 
-			
+		if detener_hilo: return 
 		if textura != null and not cache_temporal.has(textura):
-			# Las matemáticas brutales ocurren aquí, pero no congelan el juego
 			var imagen = textura.get_image()
 			var bitmap = BitMap.new()
 			bitmap.create_from_image_alpha(imagen)
 			var poligonos = bitmap.opaque_to_polygons(Rect2(Vector2.ZERO, imagen.get_size()), 2.0)
-			
 			cache_temporal[textura] = poligonos
 			
-	# Solo enviamos la señal si el juego sigue activo y no nos han cancelado la carga
 	if not detener_hilo:
 		call_deferred("_carga_terminada", cache_temporal)
 
-# --- DE VUELTA AL JUEGO PRINCIPAL ---
 func _carga_terminada(resultado_cache):
-	# Apagamos el hilo correctamente para liberar memoria
 	if hilo_carga != null and hilo_carga.is_started():
 		hilo_carga.wait_to_finish()
 	
-	# Guardamos los cálculos en nuestra variable
 	cache_poligonos = resultado_cache
+	math_terminada = true # La compu ya terminó
+	_intentar_iniciar_juego()
 
-	# Arrancamos los botes de basura
-	var timer = Timer.new()
-	timer.wait_time = tiempo_generacion
-	timer.autostart = true
-	timer.timeout.connect(lanzar_basura)
-	add_child(timer)
-	timer.start()
+func _mostrar_tutorial():
+	var escena_tutorial = preload("res://Scenes/tutorial_overlay.tscn") 
+	var tutorial = escena_tutorial.instantiate()
+	get_tree().current_scene.add_child(tutorial)
+	
+	tutorial.tutorial_cerrado.connect(_on_tutorial_cerrado)
 
+func _on_tutorial_cerrado():
+	tutorial_terminado = true # El jugador ya terminó
+	_intentar_iniciar_juego()
+
+func _intentar_iniciar_juego():
+	
+	if math_terminada and tutorial_terminado:
+		
+		
+		if Global.cache_poligonos.is_empty():
+			Global.cache_poligonos = cache_poligonos.duplicate()
+			
+		
+		if has_node("/root/Global"):
+			get_node("/root/Global").juego_activo = true 
+			
+		if timer_generacion.is_stopped():
+			timer_generacion.start() 
+			
+			
+			lanzar_basura()
+
+# --------------------------------
 func lanzar_basura():
 	if escena_basura == null: return
 		
@@ -87,8 +135,13 @@ func lanzar_basura():
 	if basura_actual.size() >= limite_basura_en_pantalla: return 
 		
 	var basura = escena_basura.instantiate()
-	var permite_reutilizable = Global.include_second_use
-	var velocidad_nivel = Global.falling_speed
+	
+	var permite_reutilizable = false
+	var velocidad_nivel = 150.0
+	if has_node("/root/Global"):
+		var global = get_node("/root/Global")
+		permite_reutilizable = global.get("include_second_use")
+		velocidad_nivel = global.get("falling_speed")
 	
 	var probabilidad = randf()
 	var tipo_elegido = ""
@@ -122,13 +175,11 @@ func lanzar_basura():
 	var pos_x = randf_range(100, viewport_size.x - 100)
 	basura.global_position = Vector2(pos_x, -50)
 	
-	# Usamos call_deferred para no causar un micro-tirón al añadir el nodo a la escena
 	get_tree().current_scene.call_deferred("add_child", basura)
 	
 	var punto_parada = Vector2(pos_x, viewport_size.y / 2)
 	if basura.has_method("setup"): basura.setup(punto_parada, 20.0)
 
-# Simplificamos esta función porque ya no calcula nada, solo lee el diccionario
 func _asignar_hitbox_desde_cache(nodo_basura: Node2D, sprite: Sprite2D):
 	if not is_instance_valid(nodo_basura) or not is_instance_valid(sprite) or sprite.texture == null: return
 

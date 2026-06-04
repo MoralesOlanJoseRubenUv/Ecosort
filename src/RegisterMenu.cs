@@ -15,6 +15,7 @@ public partial class RegisterMenu : Control
 	{
 		// Mantiene la misma música del login sin reiniciarse
 		GetNode("/root/MusicaFondo").Call("reproducir_login");
+		GetNode("/root/MenuAjustes").Call("mostrar_boton");
 	}
 
 	public void _on_register_button_pressed()
@@ -40,6 +41,7 @@ public partial class RegisterMenu : Control
 
 		// 2. Si es nuevo, configuramos los datos iniciales en el Manager
 		PlayerDataManager.CurrentUsername = username;
+		GetNode("/root/Global").Set("id_sesion", username);
 		PlayerDataManager.TotalScore = 0;
 		PlayerDataManager.CurrentLevel = 1;
 		

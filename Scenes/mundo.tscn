@@ -164,6 +164,7 @@ animations = [{
 layer = -1
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="LayerFondo" unique_id=62412754]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -174,6 +175,7 @@ stream = ExtResource("1_spk4o")
 autoplay = true
 expand = true
 loop = true
+bus = &"Videos"
 script = ExtResource("2_6w28a")
 video_limpio = ExtResource("1_spk4o")
 video_sucio = ExtResource("3_77wdd")
@@ -223,7 +225,6 @@ texturas_inorganico = Array[Texture2D]([ExtResource("19_wmopk"), ExtResource("20
 texturas_reciclable = Array[Texture2D]([ExtResource("28_2u6jv"), ExtResource("29_2t8tb"), ExtResource("30_nf2fw"), ExtResource("31_lj2jb"), ExtResource("32_wmopk"), ExtResource("33_b8o3q"), ExtResource("34_wpdun")])
 texturas_reutilizable = Array[Texture2D]([ExtResource("34_j47cb"), ExtResource("35_6w28a"), ExtResource("39_ubash"), ExtResource("40_gk2ue"), ExtResource("41_0j2o2"), ExtResource("42_ykwuh"), ExtResource("43_gi006"), ExtResource("44_o6xtl"), ExtResource("45_12wkp"), ExtResource("46_2t2fu")])
 texturas_enganosa = Array[Texture2D]([ExtResource("18_lj2jb"), ExtResource("28_l4t3o"), ExtResource("29_hktrb"), ExtResource("30_70oky"), ExtResource("31_bttiy")])
-limite_basura_en_pantalla = 40
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=856388117]
 

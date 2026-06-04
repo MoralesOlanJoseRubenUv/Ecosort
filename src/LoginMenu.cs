@@ -12,6 +12,7 @@ public partial class LoginMenu : Control
 	{
 		// Llamamos al Autoload de la música usando C#
 		GetNode("/root/MusicaFondo").Call("reproducir_login");
+		GetNode("/root/MenuAjustes").Call("mostrar_boton");
 	}
 
 	public void _on_login_button_pressed()
@@ -35,6 +36,7 @@ public partial class LoginMenu : Control
 		{
 			// 3. Cargar datos al Manager
 			PlayerDataManager.CurrentUsername = username;
+			GetNode("/root/Global").Set("id_sesion", username);
 			PlayerDataManager.CurrentPassword = password; // Lo guardamos en memoria para el auto-guardado
 			PlayerDataManager.TotalScore = (int)data["total_score"];
 			PlayerDataManager.CurrentLevel = (int)data["current_level"];

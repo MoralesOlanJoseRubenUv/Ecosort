@@ -4,4 +4,5 @@
 
 [node name="MusicaFondo" type="AudioStreamPlayer" unique_id=602834348]
 volume_db = -15.0
+bus = &"Musica"
 script = ExtResource("1_7l8t4")

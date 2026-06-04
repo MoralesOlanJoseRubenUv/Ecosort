@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://csbqq7p6xphci" path="res://src/LoginMenu.cs" id="1_1hsr4"]
 [ext_resource type="Theme" uid="uid://xkgf866lcemd" path="res://TemaPrincipal.tres" id="1_8s0cw"]
 [ext_resource type="VideoStream" uid="uid://uaufgshse0oy" path="res://AnimacionRegistro.ogv" id="3_qosbn"]
+[ext_resource type="Texture2D" uid="uid://dd3igyob01xa8" path="res://EcoSort Icons/logo.png" id="4_2cb5a"]
 
 [node name="MenuLogin" type="Control" unique_id=599601821 node_paths=PackedStringArray("_usernameInput", "_passwordInput", "_feedbackLabel")]
 layout_mode = 3
@@ -28,17 +29,7 @@ stream = ExtResource("3_qosbn")
 autoplay = true
 expand = true
 loop = true
-
-[node name="Label" type="Label" parent="." unique_id=1744392881]
-layout_mode = 0
-offset_left = 449.0
-offset_top = 114.0
-offset_right = 755.0
-offset_bottom = 171.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 41
-text = "Inicio de Sesion"
-horizontal_alignment = 1
+bus = &"Videos"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1496187981]
 layout_mode = 0
@@ -91,6 +82,30 @@ offset_bottom = 487.0
 [node name="BtnExit" type="Button" parent="VBoxContainer3" unique_id=1057954329]
 layout_mode = 2
 text = "Salir"
+
+[node name="Label" type="Label" parent="." unique_id=1744392881]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 114.0
+offset_right = 755.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Inicio de Sesión"
+horizontal_alignment = 1
+
+[node name="Logo" type="TextureRect" parent="." unique_id=5358983]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = 7.0
+offset_right = 111.5
+offset_bottom = 110.0
+grow_horizontal = 2
+texture = ExtResource("4_2cb5a")
+expand_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_go_to_register_pressed"]

@@ -8,6 +8,9 @@ func _ready():
 	actualizar_texto()
 
 func _process(delta):
+	if not Global.juego_activo:
+		return
+		
 	if tiempo_restante > 0:
 		tiempo_restante -= delta
 		actualizar_texto()

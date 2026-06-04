@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfsnhp245068j"]
+
+[ext_resource type="Script" uid="uid://dewng0vjqcuw6" path="res://tutorial_overlay.gd" id="1_c8wnh"]
+
+[node name="TutorialOverlay" type="CanvasLayer" unique_id=669836462]
+script = ExtResource("1_c8wnh")
