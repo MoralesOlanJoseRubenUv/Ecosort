@@ -55,12 +55,37 @@ public partial class PauseMenu : CanvasLayer
 
 	public void _on_btn_restart_pressed()
 	{
-		// Importante: ¡Quitar la pausa antes de reiniciar o la nueva escena nacerá congelada!
+		// 1. Quitamos la pausa general
 		GetTree().Paused = false; 
 		
-		// Escondemos la tuerca para que el nivel empiece limpio
-		GetNode("/root/MenuAjustes").Call("ocultar_boton");
+		// 2. Escondemos la tuerca de ajustes si es que estaba abierta
+		if (GetNodeOrNull("/root/MenuAjustes") != null)
+		{
+			GetNode("/root/MenuAjustes").Call("ocultar_boton");
+		}
 		
+		// 3. Reseteo total del Reporte Ambiental en el Autoload Global
+		Node global = GetNode("/root/Global");
+		global.Set("puntos", 0);
+		
+		// Determinamos cuántas vidas darle dependiendo del nivel en el que estaba
+		int nivelActual = (int)global.Get("nivel_actual");
+		int vidasIniciales = 3;
+		if (nivelActual == 1) vidasIniciales = 5;
+		else if (nivelActual == 3) vidasIniciales = 1;
+		
+		global.Set("vidas", vidasIniciales);
+		global.Set("tiempo_jugado", 0.0f);
+		global.Set("basura_procesada", 0);
+		global.Set("basura_correcta", 0);
+		global.Set("basura_incorrecta", 0);
+		global.Set("errores_contaminacion", 0);
+		global.Set("errores_reuso", 0);
+		global.Set("errores_trampas", 0);
+		global.Set("intervenciones_eco", 0);
+		global.Set("juego_activo", false); 
+		
+		// 4. Reiniciamos la escena con el historial impecable
 		GetTree().ReloadCurrentScene();
 	}
 

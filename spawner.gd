@@ -18,7 +18,6 @@ var tipos_comunes = ["organico", "inorganico", "reciclable", "enganosa"]
 var cache_poligonos: Dictionary = {}
 var timer_generacion: Timer
 
-# Controladores de carga fluida
 var hilo_carga: Thread
 var detener_hilo: bool = false
 var math_terminada: bool = false
@@ -26,7 +25,7 @@ var tutorial_terminado: bool = false
 
 func _ready():
 	if has_node("/root/MusicaFondo"):
-		get_node("/root/MusicaFondo").reproducir_juego()
+		MusicaFondo.reproducir_juego()
 		
 	timer_generacion = Timer.new()
 	timer_generacion.wait_time = tiempo_generacion
@@ -34,35 +33,34 @@ func _ready():
 	timer_generacion.timeout.connect(lanzar_basura)
 	add_child(timer_generacion)
 
+	# Aseguramos que el candado de tiempo esté cerrado al iniciar
 	if has_node("/root/Global"):
 		get_node("/root/Global").juego_activo = false
-
-	
-	if Global.nivel_actual > 1:
-		tutorial_terminado = true
-
-	
-	if not Global.cache_poligonos.is_empty():
-		
-		cache_poligonos = Global.cache_poligonos.duplicate()
-		math_terminada = true
-		_intentar_iniciar_juego()
-		return
-		
-	hilo_carga = Thread.new()
-	hilo_carga.start(_tarea_pesada_en_segundo_plano)
 
 	var nivel = 1
 	if has_node("/root/Global"):
 		var global = get_node("/root/Global")
 		nivel = global.get("nivel_actual")
 		
-	# 2. LANZAMOS EL TUTORIAL AL INSTANTE
+	# Configuración de tutorial según el nivel
 	if nivel == 1:
 		tutorial_terminado = false
 		call_deferred("_mostrar_tutorial")
 	else:
-		tutorial_terminado = true # En nivel 2 y 3 no hay tutorial
+		tutorial_terminado = true 
+
+	# --- EL TRUCO DE MEMORIA CORREGIDO ---
+	var necesito_calcular = true
+	
+	if has_node("/root/Global") and not get_node("/root/Global").cache_poligonos.is_empty():
+		cache_poligonos = get_node("/root/Global").cache_poligonos.duplicate()
+		math_terminada = true
+		necesito_calcular = false
+		_intentar_iniciar_juego()
+
+	if necesito_calcular:
+		hilo_carga = Thread.new()
+		hilo_carga.start(_tarea_pesada_en_segundo_plano)
 
 func _exit_tree():
 	detener_hilo = true
@@ -95,7 +93,7 @@ func _carga_terminada(resultado_cache):
 		hilo_carga.wait_to_finish()
 	
 	cache_poligonos = resultado_cache
-	math_terminada = true # La compu ya terminó
+	math_terminada = true 
 	_intentar_iniciar_juego()
 
 func _mostrar_tutorial():
@@ -106,26 +104,22 @@ func _mostrar_tutorial():
 	tutorial.tutorial_cerrado.connect(_on_tutorial_cerrado)
 
 func _on_tutorial_cerrado():
-	tutorial_terminado = true # El jugador ya terminó
+	tutorial_terminado = true 
 	_intentar_iniciar_juego()
 
 func _intentar_iniciar_juego():
-	
 	if math_terminada and tutorial_terminado:
-		
-		
-		if Global.cache_poligonos.is_empty():
-			Global.cache_poligonos = cache_poligonos.duplicate()
+		# Guardamos los cálculos para el nivel 2 y 3
+		if has_node("/root/Global") and get_node("/root/Global").cache_poligonos.is_empty():
+			get_node("/root/Global").cache_poligonos = cache_poligonos.duplicate()
 			
-		
+		# ABRIMOS EL CANDADO DE TIEMPO
 		if has_node("/root/Global"):
 			get_node("/root/Global").juego_activo = true 
 			
 		if timer_generacion.is_stopped():
-			timer_generacion.start() 
-			
-			
-			lanzar_basura()
+			timer_generacion.start()
+			lanzar_basura() # LANZAMOS EL PRIMERO SIN DELAY
 
 # --------------------------------
 func lanzar_basura():
